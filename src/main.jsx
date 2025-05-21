@@ -1,10 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import Emojipedia from "./Emojipedia";
+import emojies from "./emojies.js";
 
-createRoot(document.getElementById('root')).render(
+function Emojie(emo) {
+  return (
+    <Emojipedia
+      key={emo.id}
+      img={emo.img}
+      name={emo.name}
+      details={emo.details}
+    />
+  );
+}
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <h1 className="head">EMOJYPEDIA</h1>
+    <div className="main-root">{emojies.map(Emojie)}</div>
+  </StrictMode>
+);
